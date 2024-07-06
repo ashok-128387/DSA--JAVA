@@ -1,0 +1,18 @@
+import java.util.Arrays; // Correct import statement for Arrays
+
+public class insert {
+    public static void main(String[] args) {
+        int[] a = {12, 4, 5, 2, 1, 67}; // Correct array declaration
+        int temp; // Declare the temp variable
+
+        for (int i = 1; i < a.length; i++) { // Correct loop bounds
+            for (int j = i; j > 0 && a[j] < a[j - 1]; j--) { // Correct inner loop and condition
+                temp = a[j]; // Swap elements
+                a[j] = a[j - 1];
+                a[j - 1] = temp;
+            }
+        }
+
+        System.out.println("Sorted array: " + Arrays.toString(a)); // Print the sorted array
+    }
+}
