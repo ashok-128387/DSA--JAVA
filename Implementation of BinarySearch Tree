@@ -1,0 +1,67 @@
+import java.io.*;
+import java.util.Scanner;
+ class  binarytree{
+node root;
+class node{
+   int data;
+ node left,right;
+ 
+public  node(int d){
+data=d;
+left=null;
+right=null;
+}
+}
+ binarytree(int d){
+ root =new node(d);
+ }
+public void insertleft(node r,int value){
+node newnode=new node(value);
+r.left=newnode;
+}
+public void insertright(node r,int value){
+node newnode=new node(value); 
+r.right=newnode;
+}
+public static void preorder(node root){
+if(root!=null){
+System.out.print(root.data);
+preorder(root.left);
+preorder(root.right);
+}
+}
+public static void inorder(node root){
+if(root!=null){
+inorder(root.left);
+S ystem.out.print(root.data);
+inorder(root.right);
+}
+}
+
+public static void postorder(node root){
+if(root!=null){
+postorder(root.left);
+postorder(root.right);
+System.out.print(root.data);
+
+}
+}
+}
+class binarytree1{
+public static void main(String[] args){
+binarytree tree =new binarytree(3);
+tree.insertleft(tree.root,5);
+tree.insertright(tree.root,4);
+tree.insertleft(tree.root.left,4);
+tree.insertright(tree.root.right,7);
+binarytree.preorder(tree.root);
+System.out.println();
+binarytree.inorder(tree.root);
+System.out.println();
+
+binarytree.postorder(tree.root);
+System.out.println();
+
+
+}
+}
