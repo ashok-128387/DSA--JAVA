@@ -1,0 +1,84 @@
+import java.io.*;
+class linkedlist<T> {
+    Node last;
+
+    class Node {
+        T data;
+        Node next;
+
+        Node(T value) {
+            data = value;
+            next = null;
+        }
+    }
+
+    public void insertatbeginning(T value) {
+        Node newnode = new Node(value);
+        if (last == null) {
+            newnode.next = newnode;
+            last = newnode;
+        } else {
+            newnode.next = last.next;
+            last.next = newnode;
+        }
+    }
+
+    public void insertatend(T value) {
+        Node newnode = new Node(value);
+        if (last == null) {
+            newnode.next = newnode;
+            last = newnode;
+        } else {
+            newnode.next = last.next;
+            last.next = newnode;
+            last = newnode;
+        }
+    }
+
+    public void display() {
+        if (last == null)
+            return;
+        Node temp = last.next;
+        do {
+            System.out.println(temp.data + "");
+            temp = temp.next;
+        } while (temp != last.next);
+    }
+
+    public T deletebegin() {
+        if (last == null)
+            throw new IndexOutOfBoundsException("invalid");
+        T temp = last.next.data;
+        if (last.next == last)
+            last = null;
+        else
+            last.next = last.next.next;
+        return temp;
+    }
+
+    public void deleteend() {
+        if (last == null)
+            throw new IndexOutOfBoundsException("invalid)");
+        if (last.next == last)
+            last = null;
+        else {
+            Node temp = last.next;
+            while (temp.next != last) {
+                temp = temp.next;
+            }
+            temp.next = last.next;
+            last = temp;
+        }
+    }
+}
+
+public class number {
+    public static void main(String[] args) {
+        linkedlist<Integer> list = new linkedlist<Integer>();
+        list.insertatbeginning(1);
+        list.insertatend(2);
+        list.display();
+        list.deleteend();
+        list.display();
+    }
+}
