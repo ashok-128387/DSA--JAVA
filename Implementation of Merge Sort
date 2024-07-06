@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.Arrays;
+class sorting{
+    public static int[] mergesort(int[]a){
+        if(a.length==1)
+         return a;
+         int mid=a.length/2;
+         int[]left=mergesort(Arrays.copyOfRange(a,0,mid));
+         int[]right=mergesort(Arrays.copyOfRange(a,mid,a.length));
+         return merge(left,right);
+         
+    }
+    public static int[] merge(int[]first,int[]second){
+        int[] joined=new int[first.length+second.length];
+        int i=0,j=0,k=0;
+        while(i<first.length && j<second.length){
+            if(first[i]<second[j])
+             joined[k++]=first[i++];
+            else
+            joined[k++]=second[j++];
+        }
+        while(i<first.length)
+        joined[k++]=first[i++];
+        while(j<second.length)
+        joined[k++]=second[j++];
+        return joined;
+    }
+    }
+    public class sort{
+    public static void main(String[]args){
+    int[]input={4,2,7,9,0,34,67,93,1,2};
+    input=sorting.mergesort(input);
+    System.out.println(Arrays.toString(input));
+}
+}
