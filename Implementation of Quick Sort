@@ -1,0 +1,45 @@
+import java.util.Arrays;
+
+class Sorting {
+    public static void Quicksort(int[] a, int low, int high) {
+        if (low >= high) 
+        return;
+
+        int start = low;
+        int end = high;
+        int mid = (start + end) / 2;
+        int pivot = a[mid];
+
+        while (start <= end) {
+            while (a[start] < pivot)
+            start++;
+            while (a[end] > pivot)
+            end--;
+            if (start <= end) {
+                  int temp = a[start];
+                a[start] = a[end];
+                a[end] = temp;
+                start++;
+                end--;
+            }
+        }
+
+        if (low < end)
+        Quicksort(a, low, end);
+        if (start < high)
+        Quicksort(a, start, high);
+    }
+
+    public static int[] quicksort1(int[] a, int low, int high) {
+        Quicksort(a, low, high);
+        return a;
+    }
+}
+
+public class Quicksort {
+    public static void main(String[] args) {
+        int[] input = {1, 4, 57, 8, 9, 4, 68, 90, 1, 2, 3};
+        input = Sorting.quicksort1(input, 0, input.length - 1);
+        System.out.println(Arrays.toString(input));
+    }
+}
