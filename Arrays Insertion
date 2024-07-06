@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.Scanner;
+class Array{
+    public static void main(String args[]){
+      
+      int i,n,number,pos;
+      System.out.println("enter the limit");
+      Scanner in=new Scanner(System.in);
+      n=in.nextInt();
+      int[]a=new int[n+1];
+      System.out.println("enter the elements");
+      for(i=0;i<n;i++){
+          a[i]=in.nextInt();
+      }
+          System.out.println("entre the element which to you to insert");
+          number=in.nextInt();
+          System.out.println("enter the position to be insert");
+          pos=in.nextInt();
+          for(i=n-1;i>=pos;i--){
+              a[i+1]=a[i];
+          }
+              n=n+1;
+              a[pos]=number;
+              System.out.println("enter the new element");
+              for(i=0;i<n;i++){
+                  System.out.println("a["+i+")="+a[i]);
+                  
+              }
+          }
+      }
