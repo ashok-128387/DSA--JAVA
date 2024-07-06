@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+class stack{
+    int[]a=new int[4];
+    int top=-1;
+            void push(int value){
+                   if(top<4)
+                   a[++top]=value;
+                                  }
+           void pop(){
+                         if(top>-1)
+                         top--;
+                          }
+           void display(){
+                     for(int i=0;i<=top;i++)
+                       System.out.println(a[i]);
+                      }
+          void peek(){
+                    int temp=a[top];
+                   System.out.println(temp);
+                   }
+   
+
+public static void main(String[] arg){
+    stack s = new stack();
+    s.push(10);
+    s.push(12);
+    s.push(234);
+    s.display();
+    s.pop();
+    s.display();
+}
+}
