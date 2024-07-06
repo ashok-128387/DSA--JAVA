@@ -1,0 +1,27 @@
+import java.util.Arrays; // Correct import statement for Arrays
+
+public class Insert {
+    public static void main(String[] args) {
+        int[] a = {12, 4, 5, 2, 1, 67}; // Correct array declaration
+        int temp; // Declare the temp variable
+
+        for (int i = 0; i < a.length - 1; i++) { // Correct loop bounds
+            int min = a[i];
+            int index = i;
+
+            for (int j = i + 1; j < a.length; j++) { // Start from i+1
+                if (a[j] < min) {
+                    min = a[j];
+                    index = j;
+                }
+            }
+            
+            // Swap the found minimum element with the first element
+            temp = a[i];
+            a[i] = a[index];
+            a[index] = temp;
+        }
+
+        System.out.println("Sorted array: " + Arrays.toString(a)); // Print the sorted array
+    }
+}
